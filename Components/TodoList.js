@@ -8,6 +8,7 @@ const TodoList = ()=>{
     const [text, setText] = useState();
     const [list, setList] = useState(['Hello World']);
 
+    // Add item method
     const addItem = ()=>{
         let updatedList = list;
         updatedList.push(text);
@@ -15,12 +16,18 @@ const TodoList = ()=>{
         setText('')
     }
 
+    // Delete item method
+    const deleteItem = (item)=>{
+        const updatedList = list.filter((todo)=> todo !== item)
+        setList(updatedList)
+    }
+
     return(
         <View style={{width: '80%', marginBottom: 60}}>
             <Text style={[styles.align, styles.font]}>{title}</Text>
             
             <ScrollView>
-                {list.map((x, index)=><Todo key={index} item={x} index={index} />)}
+                {list.map((x, index)=><Todo key={index} deleteItem={deleteItem} item={x} index={index} />)}
             </ScrollView>
 
             <View>
