@@ -1,10 +1,10 @@
 import React from "react";
 import {View, Text, StyleSheet } from 'react-native'
-const Todo = ({name})=>{
+const Todo = ({item})=>{
     return(
-        <View style={[styles.item, {margin: 8, padding: 8 }]}>
+        <View style={[styles.item, {margin: 8, padding: 8}]}>
             <Text>
-                this is {name}
+                this is {item}
             </Text>
         </View>
     )
